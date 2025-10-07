@@ -20,8 +20,19 @@ document.addEventListener("DOMContentLoaded", () => {
     type();
   }
 
-  // subtle rain overlay flicker
-  const rainOverlay = document.createElement("div");
-  rainOverlay.className = "rain-overlay";
-  document.body.appendChild(rainOverlay);
+  // subtle rain overlay flicker (only if not already present)
+  if (!document.querySelector(".rain-overlay")) {
+    const rainOverlay = document.createElement("div");
+    rainOverlay.className = "rain-overlay";
+    document.body.appendChild(rainOverlay);
+  }
+
+  // gentle glowing flicker for Bean.exe text
+  const glowText = document.querySelector(".glow");
+  if (glowText) {
+    setInterval(() => {
+      const intensity = Math.random() * 10 + 5;
+      glowText.style.textShadow = `0 0 ${intensity}px #c3874f`;
+    }, 400);
+  }
 });
