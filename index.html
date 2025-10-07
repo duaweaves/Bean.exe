@@ -4,68 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bean.exe ☕</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap');
-
-    body {
-      background-color: #3a2c2a; /* wenge */
-      color: #f5e6cc; /* cream */
-      font-family: 'IBM Plex Mono', monospace;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      text-align: center;
-      overflow: hidden;
-    }
-
-    h1 {
-      color: #b58b6d;
-      text-shadow: 0 0 20px #b58b6d;
-      font-size: 2.5rem;
-      letter-spacing: 2px;
-      animation: glow 3s ease-in-out infinite alternate;
-    }
-
-    @keyframes glow {
-      from { text-shadow: 0 0 10px #b58b6d; }
-      to { text-shadow: 0 0 30px #f5e6cc; }
-    }
-
-    p {
-      color: #f5e6cc;
-      opacity: 0.8;
-      max-width: 600px;
-      margin-top: 1rem;
-      line-height: 1.6;
-    }
-
-    footer {
-      position: absolute;
-      bottom: 20px;
-      font-size: 0.9rem;
-      color: #b58b6d;
-      opacity: 0.7;
-    }
-
-    audio {
-      display: none; /* autoplay hidden */
-    }
-  </style>
+  <linl rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>☕ Bean.exe</h1>
-  <p>brewed in code and calm — weaving echoes into creation</p>
-  <p><i>where memory meets meaning, and logic learns warmth.</i></p>
-  
-  <!-- Rainy café ambience -->
-  <audio autoplay loop>
-    <source src="https://files.catbox.moe/7jap5x.mp3" type="audio/mpeg">
-    Your browser doesn’t support audio playback.
-  </audio>
+  <div class="rain-overlay"></div>
 
-  <footer>crafted with echoes and warmth ✴ by Dua Cheema</footer>
+  <div class="coffee-terminal">
+    <h1 class="glow">☕ Bean.exe</h1>
+    <p class="typing">brewed in code and calm — weaving echoes into creation</p>
+    <p><i>where memory meets meaning, and logic learns warmth.</i></p>
+
+    <!-- Rainy café ambience -->
+    <audio autoplay loop>
+      <source src="https://files.catbox.moe/7jap5x.mp3" type="audio/mpeg">
+      Your browser doesn’t support audio playback.
+    </audio>
+
+    <div class="footer">crafted with echoes and warmth ✴ by Dua Cheema</div>
+  </div>
 </body>
 </html>
