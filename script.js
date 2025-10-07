@@ -1,12 +1,13 @@
 // ────────────────────────────────
-// Bean.exe — Vintage Café Terminal
+// Bean.exe ☕ — Vintage Café Terminal
 // ────────────────────────────────
 
-// typing animation
+// Typing animation
 document.addEventListener("DOMContentLoaded", () => {
   const typingText = document.querySelector(".typing");
+
   if (typingText) {
-    const fullText = typingText.textContent;
+    const fullText = typingText.textContent.trim();
     typingText.textContent = "";
     let index = 0;
 
@@ -14,25 +15,15 @@ document.addEventListener("DOMContentLoaded", () => {
       if (index < fullText.length) {
         typingText.textContent += fullText.charAt(index);
         index++;
-        setTimeout(type, 80); // typing speed
+        setTimeout(type, 80); // speed of typing
       }
     }
+
     type();
   }
 
-  // subtle rain overlay flicker (only if not already present)
-  if (!document.querySelector(".rain-overlay")) {
-    const rainOverlay = document.createElement("div");
-    rainOverlay.className = "rain-overlay";
-    document.body.appendChild(rainOverlay);
-  }
-
-  // gentle glowing flicker for Bean.exe text
-  const glowText = document.querySelector(".glow");
-  if (glowText) {
-    setInterval(() => {
-      const intensity = Math.random() * 10 + 5;
-      glowText.style.textShadow = `0 0 ${intensity}px #c3874f`;
-    }, 400);
-  }
+  // Create subtle rain overlay dynamically
+  const rainOverlay = document.createElement("div");
+  rainOverlay.className = "rain-overlay";
+  document.body.appendChild(rainOverlay);
 });
