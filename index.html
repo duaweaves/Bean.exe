@@ -4,26 +4,70 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bean.exe ☕</title>
+
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Favicon -->
   <link rel="icon" href="coffee.ico" type="image/x-icon">
 </head>
-<body>
-  <!-- Rain overlay will be added automatically by JS -->
 
+<body>
+  <!-- Terminal container -->
   <div class="coffee-terminal">
     <h1 class="glow">☕ Bean.exe</h1>
     <p class="typing">brewed in code and calm — weaving echoes into creation</p>
     <p><i>where memory meets meaning, and logic learns warmth.</i></p>
 
-    <!-- Rainy café ambience -->
-    <audio autoplay loop>
-      <source src="https://files.catbox.moe/7jap5x.mp3" type="audio/mpeg">
-      Your browser doesn’t support audio playback.
-    </audio>
-
     <footer>crafted with echoes and warmth ✴ by Dua Cheema</footer>
   </div>
 
+  <!-- Sound toggle button -->
+  <button id="sound-toggle" class="sound-btn" title="Toggle Sound">🔊</button>
+
+  <!-- Background music -->
+  <audio id="bg-audio" loop preload="auto">
+    <source src="https://files.catbox.moe/7jap5x.mp3" type="audio/mpeg">
+    Your browser doesn’t support audio playback.
+  </audio>
+
+  <!-- Audio control and autoplay fix -->
+  <script>
+    // Enable audio after user interaction (required by browsers)
+    function enableAudio() {
+      const audio = document.getElementById("bg-audio");
+      if (audio) {
+        audio.play().then(() => {
+          console.log("🎵 Background music started");
+        }).catch(() => {
+          console.log("Autoplay blocked — waiting for interaction");
+        });
+        document.removeEventListener("click", enableAudio);
+        document.removeEventListener("keydown", enableAudio);
+      }
+    }
+
+    document.addEventListener("click", enableAudio);
+    document.addEventListener("keydown", enableAudio);
+
+    // Sound toggle button logic
+    document.addEventListener("DOMContentLoaded", () => {
+      const audio = document.getElementById("bg-audio");
+      const btn = document.getElementById("sound-toggle");
+
+      btn.addEventListener("click", () => {
+        if (audio.paused) {
+          audio.play();
+          btn.textContent = "🔊";
+        } else {
+          audio.pause();
+          btn.textContent = "🔇";
+        }
+      });
+    });
+  </script>
+
+  <!-- Main JS file -->
   <script src="script.js"></script>
 </body>
 </html>
