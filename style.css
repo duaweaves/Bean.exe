@@ -1,0 +1,123 @@
+/*  ────────────────────────────────
+    Bean.exe  ☕ — A Vintage-Coded Café
+    Ambience: beige x wenge | rain + soft jazz
+    ──────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=Playfair+Display:ital,wght@1,500&display=swap');
+
+/* Base setup */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f5f0e6;          /* soft beige base */
+  color: #3c2f2f;                     /* wenge brown text */
+  font-family: 'IBM Plex Mono', monospace;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  text-rendering: geometricPrecision;
+}
+
+/* Terminal-style container */
+.coffee-terminal {
+  background-color: #2b211d;           /* deep wenge */
+  color: #f5f0e6;
+  border: 1px solid #b6a89e;
+  padding: 2rem 3rem;
+  width: 70%;
+  max-width: 800px;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(60, 47, 47, 0.4);
+  position: relative;
+  font-size: 1rem;
+}
+
+/* Text glow */
+.glow {
+  color: #f5f0e6;
+  text-shadow: 0 0 5px rgba(245, 240, 230, 0.4),
+               0 0 10px rgba(245, 240, 230, 0.3);
+  animation: flicker 4s infinite alternate;
+}
+
+/* Typing effect */
+.typing {
+  border-right: 2px solid #f5f0e6;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  animation: typing 6s steps(40, end) forwards, blink 1s step-end infinite;
+}
+
+/* Subtle flicker animation for glow text */
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    opacity: 0.7;
+  }
+}
+
+/* Typing animation keyframes */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* Background ambience filter (rain overlay illusion) */
+.rain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(43, 33, 29, 0.3);
+  backdrop-filter: blur(2px);
+  pointer-events: none;
+  animation: drizzle 5s infinite linear;
+}
+
+@keyframes drizzle {
+  0% { background: rgba(43, 33, 29, 0.25); }
+  50% { background: rgba(43, 33, 29, 0.35); }
+  100% { background: rgba(43, 33, 29, 0.25); }
+}
+
+/* Heading (Playfair for café mood) */
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 2.5rem;
+  color: #e8d7c2;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 12px rgba(232, 215, 194, 0.5);
+}
+
+/* Footer / tagline */
+.footer {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: 2rem;
+  font-style: italic;
+}
+
+/* Scroll aesthetic (hidden but smooth if needed) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #b6a89e;
+  border-radius: 3px;
+}
